@@ -18,4 +18,8 @@ router.get('/register', function(req, res, next) {
   res.sendFile('pages/register.html', { root: 'public' });
 });
 
+router.get('/test', function(req, res, next) {
+  res.render('index', { title: 'Esto es una pagina de prueba' });
+});
+
 module.exports = router;
