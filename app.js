@@ -19,14 +19,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Archivos de vistas/plantillas (./views)
+// Archivos de vistas/plantillas (./views) (usado con res.render)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Archivos estaticos (./public)
+// Archivos estaticos (./public) (usado con res.sendFile)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Archivos de rutas (./routes)
+// Archivos de rutas (./routes) (usado con app.use)
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
