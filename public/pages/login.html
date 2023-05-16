@@ -44,15 +44,16 @@
     </style>
   </head>
   <body>
-    <form>
+
+    <form action="/auth/login" method="post">
       <h1>Iniciar sesión</h1>
       <label for="username">Nombre de usuario:</label>
       <input type="text" id="username" name="username" placeholder="Introduce tu nombre de usuario" required>
       <label for="password">Contraseña:</label>
       <input type="password" id="password" name="password" placeholder="Introduce tu contraseña" required>
       <button type="submit">Iniciar sesión</button>
-      <p>¿No ienes cuenta? <a href="register">Registrate aquí</a></p>
-
+      <p>¿No tienes cuenta? <a href="register">Registrate aquí</a></p>
     </form>
+
   </body>
 </html>

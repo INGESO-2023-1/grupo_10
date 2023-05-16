@@ -28,11 +28,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Archivos de rutas (./routes) (usado con app.use)
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
 
 // Configuracion de rutas
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 
 // Capturar 404 y reenviar al manejador de errores
 app.use(function(req, res, next) {
