@@ -9,11 +9,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors');
 
 // Aplicacion
 const app = express();
 
+// Variables de entorno (./.env) (usado con process.env)
+require('dotenv').config();
+
 // Ajustes de la aplicacion
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
