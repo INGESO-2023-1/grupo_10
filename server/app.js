@@ -32,12 +32,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Archivos de rutas (./routes) (usado con app.use)
-const indexRouter = require('./routes/index');
-const authRouter = require('./routes/auth');
+const indexRoute = require('./routes/index');
+const authRoute = require('./routes/auth');
 
 // Configuracion de rutas
-app.use('/', indexRouter);
-app.use('/auth', authRouter);
+app.use('/api', indexRoute);
+app.use('/api/auth', authRoute);
 
 // Capturar 404 y reenviar al manejador de errores
 app.use(function(req, res, next) {
