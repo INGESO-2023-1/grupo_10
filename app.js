@@ -1,6 +1,6 @@
-// CMD: SET DEBUG=wasap:* & npm start
-// Powershell: $env:DEBUG='wasap:*'; npm start
-// Linux: DEBUG=wasap:* npm start
+// CMD: SET DEBUG=wasap_server:* & npm start
+// Powershell: $env:DEBUG='wasap_server:*'; npm start
+// Linux: DEBUG=wasap_server:* npm start
 // Servidor: http://localhost:3000/
 
 // Librerias

@@ -1,5 +1,5 @@
 {
-  "name": "wasap",
+  "name": "wasap_server",
   "version": "0.0.0",
   "private": true,
   "scripts": {
