@@ -1,4 +1,22 @@
-# grupo_10
+# Grupo 10
+
+Este es el repositorio del Grupo 10, cuyos integrantes son:
+
+* Maximiliano Sepúlveda
+
+* Sebastián Castro
+
+* Cristopher Fuentes
+
+* Ignacio Araya
+
+**Tutor:** Sebastián Cifuentes
+
+# Wiki
+
+Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/INGESO-2023-1/grupo_10/wiki).
+
+# Uso
 
 Instalar modulos:
 ```
