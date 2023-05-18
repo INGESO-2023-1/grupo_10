@@ -18,6 +18,8 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/INGESO
 
 # Uso
 
+Usar [Node.js](https://nodejs.org/en) (16.16.0).
+
 Instalar modulos:
 ```
 npm install
