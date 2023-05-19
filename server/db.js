@@ -12,7 +12,10 @@ const options = {
 };
 
 // Conectar a la base de datos
+console.log('[DB] Conectando a ' + dbURL + '...');
 mongoose.connect(dbURL, options)
+    .then(() => console.log('[DB] Base de datos conectada.'))
+    .catch(err => console.log(`[DB] Error al conectar a la base de datos: ${err}`));
 
 // Exportar modulo
 module.exports = mongoose.connection;

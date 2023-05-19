@@ -24,6 +24,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// Ajustes de la base de datos
+const db = require('./db');
+
 // Archivos de vistas/plantillas (./views) (usado con res.render)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
