@@ -2,20 +2,26 @@ const mongoose = require('mongoose');
 
 // Guardar direccion de base de datos
 var dbURL = process.env.MONGO_URL || 'mongodb://0.0.0.0:27017/wasap_db';
-mongoose.set('strictQuery', false);
 
 // Establecer opciones para conexion: timeout de 1 segundo
 const options = {
-    connectTimeoutMS: 5000,
+    serverSelectionTimeoutMS: 3000, // Esperar 3 segundos antes de fallar
     useNewUrlParser: true,
     useUnifiedTopology: true
 };
 
-// Conectar a la base de datos
-console.log('[DB] Conectando a ' + dbURL + '...');
-mongoose.connect(dbURL, options)
-    .then(() => console.log('[DB] Base de datos conectada.'))
-    .catch(err => console.log(`[DB] Error al conectar a la base de datos: ${err}`));
+// Funcion asincrona para conectar a la base de datos
+async function connectDB() {
+    try {
+        console.log('[DB] Conectando a ' + dbURL + ' ...');
+        await mongoose.connect(dbURL, options);
+        console.log('[DB] Conectado.');
+    } catch (error) {
+        console.log('[DB] Error conectando base de datos:');
+        console.log(error);
+        throw new Error('Failed to connect to MongoDB');
+    }
+}
 
 // Exportar modulo
-module.exports = mongoose.connection;
+module.exports = connectDB;
