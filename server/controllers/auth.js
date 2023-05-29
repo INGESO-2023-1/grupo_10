@@ -11,7 +11,7 @@ module.exports.prueba = function (req, res) {
   } else if (req.method == "POST") {
     res.send("Prueba recibida. Peticion POST: " + JSON.stringify(req.body));
   }
-}
+};
 
 module.exports.login = function (req, res) {
   if (req.method == "GET") {
@@ -60,7 +60,7 @@ module.exports.login = function (req, res) {
   } else if (req.method == "POST") {
     res.send("Login recibido. Peticion POST: " + JSON.stringify(req.body));
   }
-}
+};
 
 module.exports.register = function (req, res) {
   if (req.method == "GET") {
@@ -107,4 +107,4 @@ module.exports.register = function (req, res) {
   } else if (req.method == "POST") {
     res.send("Register recibido. Peticion POST: " + JSON.stringify(req.body));
   }
-}
+};
