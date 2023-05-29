@@ -5,15 +5,14 @@
  */
 
 var app = require('../app');
-const connectDB = require('../db');
 var db = require('../db');
 var debug = require('debug')('wasap_server:server');
 var http = require('http');
 
-async function startServer() {
+async function main() {
   try {
     // Conectar a la base de datos primero
-    await connectDB();
+    await db();
 
     // Luego iniciar el servidor...
 
@@ -104,4 +103,4 @@ async function startServer() {
   }
 }
 
-startServer();
+main();
