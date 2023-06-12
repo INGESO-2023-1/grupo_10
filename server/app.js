@@ -10,6 +10,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
+const session = require("express-session");
 
 // Aplicacion
 const app = express();
@@ -18,6 +19,11 @@ const app = express();
 require("dotenv").config();
 
 // Ajustes de la aplicacion
+app.use(session({
+  secret: process.env.SESSION_SECRET || "my_secret",
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
