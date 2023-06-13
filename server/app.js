@@ -19,11 +19,13 @@ const app = express();
 require("dotenv").config();
 
 // Ajustes de la aplicacion
-app.use(session({
-  secret: process.env.SESSION_SECRET || "my_secret",
-  resave: false,
-  saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "my_secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
@@ -40,10 +42,14 @@ app.use(express.static(path.join(__dirname, "public")));
 // Archivos de rutas (./routes) (usado con app.use)
 const indexRoute = require("./routes/index");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/user");
+const contactRoute = require("./routes/contact");
 
 // Configuracion de rutas
 app.use("/api", indexRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/user", userRoute);
+app.use("/api/contact", contactRoute);
 
 // Capturar 404 y reenviar al manejador de errores
 app.use(function (req, res, next) {
