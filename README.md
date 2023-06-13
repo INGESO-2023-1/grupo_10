@@ -65,7 +65,7 @@ Linux, OS X (Bash):
 DEBUG=wasap:* npm run devstart
 ```
 
-##Librerias necesarias para frontend
+## Librerias necesarias para frontend
 Bootstrap 5:
 ```
 npm install react-bootstrap bootstrap
