@@ -53,6 +53,8 @@ module.exports.login = function (req, res) {
               );
               req.session.authenticated = true;
               req.session.userId = found._id;
+              req.session.username = found.username;
+              req.session.phone = found.phone;
 
               res.send(found);
             } else {
