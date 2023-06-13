@@ -98,7 +98,8 @@ module.exports.getContacts = function (req, res) {
     Contact.findOne({ phone: req.session.phone })
       .then((user) => {
         if (!user) {
-          res.status(404).send("Lista de contactos no encontrada.");
+          console.log("[controllers/user.getContacts] Usuario no posee lista de contactos.");
+          res.json([]);
           return;
         }
         // Enviar lista de contactos como JSON
