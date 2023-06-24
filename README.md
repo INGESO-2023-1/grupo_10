@@ -14,58 +14,40 @@ Este es el repositorio del Grupo 10, cuyos integrantes son:
 
 # Cambios
 
-Actualmente trabajando en branch [express-dev](https://github.com/INGESO-2023-1/grupo_10/tree/express-dev).
+👉 Actualmente trabajando en branch [react-dev](https://github.com/INGESO-2023-1/grupo_10/tree/react-dev).
 
 # Wiki
 
-Puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/INGESO-2023-1/grupo_10/wiki).
+👉 Se puede acceder a la Wiki mediante el siguiente [enlace](https://github.com/INGESO-2023-1/grupo_10/wiki).
 
-# Uso
+👉 La documentación de la API se encuentra en la seccion [API Docs](https://github.com/INGESO-2023-1/grupo_10/wiki/API-Docs).
 
-Usar [Node.js](https://nodejs.org/en) (16.16.0).
+# Setting up
 
-Instalar modulos:
-```
-npm install
-```
+Se utilizó [Node.js](https://nodejs.org/en) version 18.16.0.
 
-## Correr servidor
+La carpeta `server` contiene el servidor Express, mientras que la carpeta `client` contiene el servidor React.
 
-CMD:
-```
-SET DEBUG=wasap:* & npm start
-```
+## Express
 
-PowerShell:
-```
-$env:DEBUG='wasap:*'; npm start
-```
+1. Abrir una terminal en la carpeta `server`.
 
-Linux, OS X (Bash):
-```
-DEBUG=wasap:* npm start
-```
+2. Ejecutar `npm install` para instalar las dependencias.
 
-Punto de acceso: http://localhost:3000/
+3. Para correr el servidor se puede ejecutar `npm start` o `npm run devstart` para correrlo con nodemon.
 
-## Correr servidor con nodemon
+4. El servidor se ejecutará por defecto en el puerto 4000 (http://localhost:4000).
 
-CMD:
-```
-SET DEBUG=wasap:* & npm run devstart
-```
+> Si se desea cambiar el puerto, se debe modificar el archivo `bin/www`.
 
-PowerShell:
-```
-$env:DEBUG='wasap:*'; npm run devstart
-```
+> Se recomienda revisar la documentacion de la API en la seccion [API Docs](https://github.com/INGESO-2023-1/grupo_10/wiki/API-Docs).
 
-Linux, OS X (Bash):
-```
-DEBUG=wasap:* npm run devstart
-```
+> Para las pruebas se utilizó la extensión de VSCode [Thunder Client](https://www.thunderclient.io/). La coleccion de pruebas se encuentra en el archivo `thunder-collection_Wasap.json`. Tambien se puede utilizar [Postman](https://www.postman.com/).
 
-## Librerias necesarias para frontend
+## React
+
+Librerias necesarias para frontend
+
 Bootstrap 5:
 ```
 npm install react-bootstrap bootstrap
