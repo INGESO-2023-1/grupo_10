@@ -3,13 +3,15 @@ const mongoose = require("mongoose");
 
 // Definir esquema de mensajes
 const messageSchema = new mongoose.Schema({
-    from: {
+    fromPhone: {
         type: String,
         required: true,
+        minlength: 10,
     },
-    to: {
+    toPhone: {
         type: String,
         required: true,
+        minlength: 10,
     },
     message: {
         type: String,

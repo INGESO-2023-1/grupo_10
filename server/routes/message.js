@@ -5,6 +5,7 @@ const router = express.Router();
 const messageController = require("../controllers/message");
 
 // Manejar peticiones
-router.post("/send/:phone", messageController.sendMessage);
+router.post("/send", messageController.sendMessage);
+router.get("/list/:phone", messageController.getMessages);
 
 module.exports = router;

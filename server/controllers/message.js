@@ -1,7 +1,7 @@
 // Archivos de modelos
 const Message = require("../models/message");
 
-// URL: POST /api/message/send/:phone
+// URL: POST /api/message/send
 module.exports.sendMessage = function (req, res) {
   // Verificar que usuario este autenticado en la sesion
   if (!req.session.authenticated) {
@@ -9,33 +9,33 @@ module.exports.sendMessage = function (req, res) {
     return;
   } else {
     // Guardar id de usuario en variable
-    const phone_var = req.session.phone;
+    const fromPhone_var = req.session.phone;
 
     // Obtener datos del formulario
-    const contact_phone = req.params.phone;
-    const message = req.body.message;
+    const toPhone_var = req.body.phone;
+    const message_var = req.body.message;
 
     // Hora actual
-    const date = new Date();
+    const date_var = new Date();
 
     // Validar datos
-    if (!contact_phone || !message) {
+    if (!toPhone_var || !message_var) {
       res.status(400).send("Faltan datos.");
       return;
     }
 
     // Evitar que usuario se envie mensajes a si mismo
-    if (phone_var == contact_phone) {
+    if (fromPhone_var == toPhone_var) {
       res.status(400).send("No puedes enviarte mensajes a ti mismo.");
       return;
     }
 
     // Crear mensaje
     const newMessage = new Message({
-      from: phone_var,
-      to: contact_phone,
-      message: message,
-      date: date,
+      fromPhone: fromPhone_var,
+      toPhone: toPhone_var,
+      message: message_var,
+      date: date_var,
     });
 
     // Guardar mensaje en base de datos
@@ -44,9 +44,9 @@ module.exports.sendMessage = function (req, res) {
       .then(() => {
         console.log(
           "[controllers/message.sendMessage] Mensaje enviado desde " +
-            phone_var +
+            fromPhone_var +
             " a " +
-            contact_phone +
+            toPhone_var +
             "."
         );
         res.send(newMessage);
@@ -56,4 +56,54 @@ module.exports.sendMessage = function (req, res) {
         res.status(500).send("Error al enviar mensaje.");
       });
   }
+};
+
+// URL: GET /api/message/list/:phone
+module.exports.getMessages = function (req, res) {
+  // Verificar que usuario este autenticado en la sesion
+  if (!req.session.authenticated) {
+    res.status(401).send("Usuario no autenticado.");
+    return;
+  }
+
+  // Obtener id de usuario de la sesion
+  const userPhone_var = req.session.phone;
+  const contactPhone_var = req.params.phone;
+
+  // Buscar mensajes con el contacto en la base de datos
+  Message.find({ fromPhone: userPhone_var, toPhone: contactPhone_var })
+    .then((messages) => {
+      // messages: arreglo de mensajes desde el usuario a un contacto
+
+      // Buscar mensajes desde el contacto al usuario en la base de datos
+      Message.find({ fromPhone: contactPhone_var, toPhone: userPhone_var })
+        .then((messages2) => {
+          // messages2: arreglo de mensajes desde el contacto al usuario
+
+          // Concatenar arreglos de mensajes
+          const allMessages = messages.concat(messages2);
+
+          // Ordenar mensajes desde la mas nueva a la mas vieja
+          allMessages.sort((a, b) => {
+            return b.date - a.date;
+          });
+
+          console.log(
+            "[controllers/message.getMessages] Mensajes obtenidos entre " +
+              userPhone_var +
+              " y " +
+              contactPhone_var +
+              "."
+          );
+          res.send(allMessages);
+        })
+        .catch((err) => {
+          console.log("[controllers/message.getMessages] Error al obtener mensajes.");
+          res.status(500).send("Error al obtener mensajes.");
+        });
+    })
+    .catch((err) => {
+      console.log("[controllers/message.getMessages] Error al obtener mensajes.");
+      res.status(500).send("Error al obtener mensajes.");
+    });
 };
