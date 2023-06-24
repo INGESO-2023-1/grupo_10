@@ -1,6 +1,5 @@
 // Archivos de modelos
 const User = require("../models/user");
-const Contact = require("../models/contact");
 
 // URL: GET /api/user
 module.exports.getActualUser = function (req, res) {
@@ -85,28 +84,4 @@ module.exports.getUserByPhone = function (req, res) {
     .catch((err) => {
       res.status(500).send("Error al buscar usuario.");
     });
-};
-
-// URL: GET /api/user/contacts
-module.exports.getContacts = function (req, res) {
-  // Verificar que haya un usuario en sesion
-  if (!req.session.authenticated) {
-    res.status(401).send("No hay un usuario en sesion.");
-    return;
-  } else {
-    // Obtener lista de contactos del usuario en sesion
-    Contact.findOne({ phone: req.session.phone })
-      .then((user) => {
-        if (!user) {
-          console.log("[controllers/user.getContacts] Usuario no posee lista de contactos.");
-          res.json([]);
-          return;
-        }
-        // Enviar lista de contactos como JSON
-        res.json(user.contacts);
-      })
-      .catch((err) => {
-        res.status(500).send("Error al buscar lista de contactos.");
-      });
-  }
 };

@@ -3,14 +3,14 @@ const mongoose = require("mongoose");
 
 // Definir esquema de lista de contactos
 const contactSchema = new mongoose.Schema({
-    phone: {
+    userPhone: {
         type: String,
         required: true,
-        unique: true,
     },
-    contacts: {
-        type: Array,
+    contactPhone: {
+        type: String,
         required: true,
+        minlength: 10,
     },
 });
 

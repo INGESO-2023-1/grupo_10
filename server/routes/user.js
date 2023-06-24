@@ -6,7 +6,6 @@ const userController = require("../controllers/user");
 
 // Manejar peticiones GET
 router.get("/", userController.getActualUser);
-router.get("/contacts", userController.getContacts);
 router.get("/phone/:phone", userController.getUserByPhone);
 router.get("/username/:username", userController.getUser);
 
