@@ -12,7 +12,7 @@ module.exports.addContact = function (req, res) {
     const userPhone_var = req.session.phone;
 
     // Obtener datos del formulario
-    const contactPhone_var = req.body.phoneAdd;
+    const contactPhone_var = req.body.phone;
 
     // Validar datos
     if (!contactPhone_var) {
@@ -80,7 +80,7 @@ module.exports.removeContact = function (req, res) {
     const userPhone_var = req.session.phone;
 
     // Obtener datos del formulario
-    const contactPhone_var = req.body.phoneRemove;
+    const contactPhone_var = req.body.phone;
 
     // Validar datos
     if (!contactPhone_var) {
