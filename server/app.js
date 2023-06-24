@@ -44,12 +44,14 @@ const indexRoute = require("./routes/index");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const contactRoute = require("./routes/contact");
+const messageRoute = require("./routes/message");
 
 // Configuracion de rutas
 app.use("/api", indexRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/user", userRoute);
 app.use("/api/contact", contactRoute);
+app.use("/api/message", messageRoute);
 
 // Capturar 404 y reenviar al manejador de errores
 app.use(function (req, res, next) {
