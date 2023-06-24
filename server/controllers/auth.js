@@ -56,7 +56,12 @@ module.exports.login = function (req, res) {
               req.session.username = found.username;
               req.session.phone = found.phone;
 
-              res.send(found);
+              res.json({
+                authenticated: true,
+                userID: found._id,
+                username: found.username,
+                phone: found.phone,
+              });
             } else {
               res.status(400).send("Contraseña incorrecta.");
             }
@@ -145,6 +150,6 @@ module.exports.logout = function (req, res) {
     res.send("Sesion cerrada exitosamente.");
   } else {
     console.log("[controllers/auth.logout] Sesion no iniciada.");
-    res.status(400).send("Sesion no iniciada.");
+    res.status(401).send("Sesion no iniciada.");
   }
 }
