@@ -1,0 +1,268 @@
+{
+    "info": {
+        "_postman_id": "31763dba-fa2c-4e33-af72-35d4f2f22d20",
+        "name": "Wasap",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "message",
+            "item": [
+                {
+                    "name": "send message to number",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "/api/message/send",
+                            "path": [
+                                "message",
+                                "send"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\r\n  \"phone\": \"2222222222\",\r\n  \"message\": \"Bien y tu\"\r\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "get message list from number",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "/api/message/list/2222222222",
+                            "path": [
+                                "message",
+                                "list",
+                                "2222222222"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "contact",
+            "item": [
+                {
+                    "name": "add contact to actual user",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "/api/contact/add",
+                            "path": [
+                                "contact",
+                                "add"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"phone\": \"5555555555\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "remove contact from actual user",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "/api/contact/remove",
+                            "path": [
+                                "contact",
+                                "remove"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"phone\": \"5555555555\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "get actual user contact list",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "/api/contact/list",
+                            "path": [
+                                "contact",
+                                "list"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "user",
+            "item": [
+                {
+                    "name": "get user by username",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "/api/user/username/usuario5",
+                            "path": [
+                                "user",
+                                "username",
+                                "usuario5"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "get user by phone",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "/api/user/phone/3333333333",
+                            "path": [
+                                "user",
+                                "phone",
+                                "3333333333"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "get actual user info",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "/api/user/",
+                            "path": [
+                                "user"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "auth",
+            "item": [
+                {
+                    "name": "register",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "/api/auth/register",
+                            "path": [
+                                "auth",
+                                "register"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"username\":\"usuario2\",\n  \"phone\":\"5555555555\",\n  \"password\":\"pass\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "/api/auth/login",
+                            "path": [
+                                "auth",
+                                "login"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"username\":\"usuario1\",\n  \"password\":\"pass\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "logout",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "/api/auth/logout",
+                            "path": [
+                                "auth",
+                                "logout"
+                            ],
+                            "host": [
+                                "api"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Sesion Test",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "/api/sessionTest",
+                    "path": [
+                        "sessionTest"
+                    ],
+                    "host": [
+                        "api"
+                    ]
+                }
+            }
+        }
+    ]
+}
