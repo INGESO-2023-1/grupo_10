@@ -75,10 +75,30 @@ module.exports.getMessages = function (req, res) {
     .then((messages) => {
       // messages: arreglo de mensajes desde el usuario a un contacto
 
+      // Extraer unicamente los campos 'fromPhone', 'toPhone', 'message' y 'date'.
+      messages = messages.map((message) => {
+        return {
+          fromPhone: message.fromPhone,
+          toPhone: message.toPhone,
+          message: message.message,
+          date: message.date,
+        };
+      });
+
       // Buscar mensajes desde el contacto al usuario en la base de datos
       Message.find({ fromPhone: contactPhone_var, toPhone: userPhone_var })
         .then((messages2) => {
           // messages2: arreglo de mensajes desde el contacto al usuario
+
+          // Extraer unicamente los campos 'fromPhone', 'toPhone', 'message' y 'date'.
+          messages2 = messages2.map((message) => {
+            return {
+              fromPhone: message.fromPhone,
+              toPhone: message.toPhone,
+              message: message.message,
+              date: message.date,
+            };
+          });
 
           // Concatenar arreglos de mensajes
           const allMessages = messages.concat(messages2);
