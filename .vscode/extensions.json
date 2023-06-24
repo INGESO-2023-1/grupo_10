@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		"rangav.vscode-thunder-client",
+		"mongodb.mongodb-vscode",
+		"roerohan.mongo-snippets-for-node-js",
+		"yzhang.markdown-all-in-one",
+		"xabikos.javascriptsnippets",
+		"idered.npm",
+		"christian-kohler.npm-intellisense",
+		"esbenp.prettier-vscode"
+	]
+}

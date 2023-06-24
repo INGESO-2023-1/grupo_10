@@ -1,0 +1,7 @@
+{
+	"thunder-client.sidebar.defaultTab": "Collections",
+	"prettier.printWidth": 100,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	 }
+}
