@@ -1,0 +1,237 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Wasap",
+    "dateExported": "2023-06-24T06:08:31.013Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "913adab9-3f7a-47ce-a36d-d6b1cdfb6348",
+            "name": "message",
+            "containerId": "",
+            "created": "2023-06-24T02:50:09.557Z",
+            "sortNum": 5000
+        },
+        {
+            "_id": "e44d81c4-2899-4a80-8e64-c69805ff53bb",
+            "name": "contact",
+            "containerId": "",
+            "created": "2023-06-12T23:44:23.139Z",
+            "sortNum": 10000,
+            "settings": {}
+        },
+        {
+            "_id": "336a387f-7402-45f6-934c-fcad6f183ea7",
+            "name": "user",
+            "containerId": "",
+            "created": "2023-06-12T23:35:21.209Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "45a2ea68-6cd8-44b9-ab39-6af3d84262fa",
+            "name": "auth",
+            "containerId": "",
+            "created": "2023-06-12T23:40:30.154Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "053c6013-0af0-48f7-88c7-889128623f58",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "e44d81c4-2899-4a80-8e64-c69805ff53bb",
+            "name": "add contact to actual user",
+            "url": "/api/contact/add",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-06-12T23:44:30.851Z",
+            "modified": "2023-06-24T05:56:45.613Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"phone\": \"5555555555\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8658d84e-528c-4314-b7e4-cc6a613f2ae8",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "",
+            "name": "Sesion Test",
+            "url": "/api/sessionTest",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-06-12T23:34:20.217Z",
+            "modified": "2023-06-24T05:58:06.600Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3cf0f6f6-ea37-46e2-8d06-9b06f7c54722",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "e44d81c4-2899-4a80-8e64-c69805ff53bb",
+            "name": "remove contact from actual user",
+            "url": "/api/contact/remove",
+            "method": "DELETE",
+            "sortNum": 20000,
+            "created": "2023-06-13T00:03:53.364Z",
+            "modified": "2023-06-24T05:57:32.341Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"phone\": \"5555555555\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f2a0efaf-6d53-42b0-98df-38f61b55cb50",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "e44d81c4-2899-4a80-8e64-c69805ff53bb",
+            "name": "get actual user contact list",
+            "url": "/api/contact/list",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-06-12T23:35:43.116Z",
+            "modified": "2023-06-24T04:52:20.265Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c5e96b8a-0436-4ef8-9b6e-57ff269fad47",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "45a2ea68-6cd8-44b9-ab39-6af3d84262fa",
+            "name": "register",
+            "url": "/api/auth/register",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2023-06-12T23:41:36.667Z",
+            "modified": "2023-06-24T05:59:06.670Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\":\"usuario2\",\n  \"phone\":\"5555555555\",\n  \"password\":\"pass\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "2441f6a7-d75a-4190-a98b-f7d94084418b",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "336a387f-7402-45f6-934c-fcad6f183ea7",
+            "name": "get user by username",
+            "url": "/api/user/username/usuario5",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-06-12T23:36:29.585Z",
+            "modified": "2023-06-24T05:55:25.078Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c52b1328-c161-4ace-bb3d-049287033bd7",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "336a387f-7402-45f6-934c-fcad6f183ea7",
+            "name": "get user by phone",
+            "url": "/api/user/phone/3333333333",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2023-06-12T23:37:20.318Z",
+            "modified": "2023-06-24T05:55:19.362Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4e31e0da-3112-4bb8-9e2a-5f3c9ce3bb74",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "45a2ea68-6cd8-44b9-ab39-6af3d84262fa",
+            "name": "login",
+            "url": "/api/auth/login",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-06-12T23:40:35.049Z",
+            "modified": "2023-06-24T06:02:16.234Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\":\"usuario1\",\n  \"password\":\"pass\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "6227c3fa-96e6-4cf7-a041-bd1fb48c998b",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "336a387f-7402-45f6-934c-fcad6f183ea7",
+            "name": "get actual user info",
+            "url": "/api/user/",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-06-12T23:38:47.995Z",
+            "modified": "2023-06-24T04:03:47.454Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "430ca812-2ec9-4cc9-b1c1-470023e25801",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "45a2ea68-6cd8-44b9-ab39-6af3d84262fa",
+            "name": "logout",
+            "url": "/api/auth/logout",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2023-06-12T23:41:37.739Z",
+            "modified": "2023-06-13T01:15:41.153Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e4aee3ac-27e8-423a-9e49-9d167a2cffbc",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "913adab9-3f7a-47ce-a36d-d6b1cdfb6348",
+            "name": "send message to number",
+            "url": "/api/message/send",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2023-06-24T02:50:32.049Z",
+            "modified": "2023-06-24T06:02:23.504Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"phone\": \"2222222222\",\r\n  \"message\": \"Bien y tu\"\r\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8e6fe31e-6a3e-423b-8289-30411d6eac6f",
+            "colId": "83144b7e-e78e-489d-bee7-c70acca78729",
+            "containerId": "913adab9-3f7a-47ce-a36d-d6b1cdfb6348",
+            "name": "get message list from number",
+            "url": "/api/message/list/2222222222",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-06-24T05:09:33.507Z",
+            "modified": "2023-06-24T06:02:29.512Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "localhost:4000"
+        }
+    }
+}
