@@ -26,9 +26,13 @@ Este es el repositorio del Grupo 10, cuyos integrantes son:
 
 Se utilizó [Node.js](https://nodejs.org/en) version 18.16.0.
 
+Para la base de datos se usó [MongoDB](https://www.mongodb.com/try/download/community) version 6.0.6.
+
 La carpeta `server` contiene el servidor Express, mientras que la carpeta `client` contiene el servidor React.
 
 ## Express
+
+⚠ Antes de abrir el servidor, **es necesario iniciar la base de datos MongoDB** con el comando `mongod` en una terminal. En caso contrario, el servidor Express no se ejecutará. Por defecto, Express intentará conectarse a la base de datos en `mongodb://0.0.0.0:27017/wasap_db`.
 
 1. Abrir una terminal en la carpeta `server`.
 
