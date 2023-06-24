@@ -8,6 +8,6 @@ const userController = require("../controllers/user");
 router.get("/", userController.getActualUser);
 router.get("/contacts", userController.getContacts);
 router.get("/phone/:phone", userController.getUserByPhone);
-router.get("/:username", userController.getUser);
+router.get("/username/:username", userController.getUser);
 
 module.exports = router;
