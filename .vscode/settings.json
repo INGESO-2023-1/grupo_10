@@ -3,5 +3,8 @@
 	"prettier.printWidth": 100,
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	 }
+	},
+	"files.trimTrailingWhitespace": false,
+	"files.trimFinalNewlines": false,
+	"files.insertFinalNewline": false
 }
