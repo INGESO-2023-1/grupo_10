@@ -22,6 +22,8 @@ function autenticar(){
       if(error.name === "AxiosError"){
         var mostrar = document.getElementById("incorrecto");
         mostrar.style.visibility = "visible"
+        mostrar = document.getElementById("correcto");
+        mostrar.style.visibility = "hidden"
       }
       console.error(error);
     });
