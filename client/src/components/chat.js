@@ -55,7 +55,7 @@ function Chat() {
             <Tab.Pane eventKey="primero">
               <Card style={{ width: '60rem', height: '430px', backgroundColor: 'rgba(0, 191, 255, 0.2)' }}>
                 <Card.Body>
-                  <Card.Title id='numero'>5555555555</Card.Title>
+                  <Card.Title id='numero1'>5555555555</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                   <Card.Text>
                   </Card.Text>
@@ -74,8 +74,8 @@ function Chat() {
                       </div>
                       <div class="w-100"></div>
                       <div class="col">
-                        <input type="text" placeholder="Escribe aquí" id='mensaje' style={{ width: '55rem',borderRadius: '8px',marginTop: '7px' }}/>
-                        <button style={{borderRadius: '10px', marginTop: '4px'}} onClick={eniar_mensaje}>Enviar</button>
+                        <input type="text" placeholder="Escribe aquí" id='mensaje1' style={{ width: '55rem',borderRadius: '8px',marginTop: '7px' }}/>
+                        <button style={{borderRadius: '10px', marginTop: '4px'}} onClick={eniar_mensaje1}>Enviar</button>
                       </div>
                     </div>
                   </div>
@@ -85,7 +85,7 @@ function Chat() {
             <Tab.Pane eventKey="segundo">
             <Card style={{ width: '60rem', height: '430px', backgroundColor: 'rgba(0, 191, 255, 0.2)' }}>
                 <Card.Body>
-                  <Card.Title>Numero receptor</Card.Title>
+                  <Card.Title id='numero2'>7777777777</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                   <Card.Text>
                   </Card.Text>
@@ -97,19 +97,20 @@ function Chat() {
                             <Card.Title></Card.Title>
                             <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                             <Card.Text>
+                              <p id='chat2'></p>
                             </Card.Text>
                           </Card.Body>
                         </Card>
                       </div>
                       <div class="w-100"></div>
                       <div class="col">
-                        <input type="text" placeholder="Escribe aquí" id= 'mensaje' style={{ width: '55rem',borderRadius: '8px',marginTop: '7px' }}/>
+                        <input type="text" placeholder="Escribe aquí" id='mensaje2' style={{ width: '55rem',borderRadius: '8px',marginTop: '7px' }}/>
+                        <button style={{borderRadius: '10px', marginTop: '4px'}} onClick={eniar_mensaje2}>Enviar</button>
                       </div>
                     </div>
                   </div>
                 </Card.Body>
               </Card>
-            
             </Tab.Pane>
           </Tab.Content>
         </Col>
@@ -126,16 +127,16 @@ function Chat() {
 
 export default Chat;
 
-function eniar_mensaje() {
-  if(document.getElementById("numero") !== null){
-  axios.post('http://localhost:4000/api/message/send', {phone:  document.getElementById("numero").textContent, message: document.getElementById("mensaje").value})
+function eniar_mensaje1() {
+  if(document.getElementById("numero1") !== null){
+  axios.post('http://localhost:4000/api/message/send', {phone:  document.getElementById("numero1").textContent, message: document.getElementById("mensaje1").value})
   .then(response => {
     // var mostrar = document.getElementById("incorrecto");
     // mostrar.style.visibility = "hidden";
     // mostrar = document.getElementById("correcto");
     // mostrar.style.visibility = "visible"
     console.log(response.data);
-    mensajeria();
+    mensajeria1();
   })
   .catch(error => {
     if(error.name === "AxiosError"){
@@ -149,10 +150,33 @@ function eniar_mensaje() {
 }
 }
 
-function mensajeria(){
+function eniar_mensaje2() {
+  if(document.getElementById("numero2") !== null){
+  axios.post('http://localhost:4000/api/message/send', {phone:  document.getElementById("numero2").textContent, message: document.getElementById("mensaje2").value})
+  .then(response => {
+    // var mostrar = document.getElementById("incorrecto");
+    // mostrar.style.visibility = "hidden";
+    // mostrar = document.getElementById("correcto");
+    // mostrar.style.visibility = "visible"
+    console.log(response.data);
+    mensajeria2();
+  })
+  .catch(error => {
+    if(error.name === "AxiosError"){
+      // var mostrar = document.getElementById("incorrecto");
+      // mostrar.style.visibility = "visible";
+      // mostrar = document.getElementById("correcto");
+      // mostrar.style.visibility = "hidden"
+    }
+    console.error(error);
+  });
+}
+}
+
+function mensajeria1(){
   let variable = "";
-  if(document.getElementById("numero") !== null){
-  let texto ='http://localhost:4000/api/message/list/'+document.getElementById("numero").textContent;
+  if(document.getElementById("numero1") !== null){
+  let texto ='http://localhost:4000/api/message/list/'+document.getElementById("numero1").textContent;
   axios.get(texto)
   .then(response => {
     var largo_lista = response.data.length;
@@ -170,6 +194,37 @@ function mensajeria(){
       contador = contador +1;
     }
     var chat = document.getElementById("chat1");
+    chat.innerHTML = variable;
+    console.log("%c" + variable, "color: blue;");
+  })
+  .catch(error => {
+    console.error(error);
+
+  }); 
+  }
+}
+
+function mensajeria2(){
+  let variable = "";
+  if(document.getElementById("numero2") !== null){
+  let texto ='http://localhost:4000/api/message/list/'+document.getElementById("numero2").textContent;
+  axios.get(texto)
+  .then(response => {
+    var largo_lista = response.data.length;
+    var contador = 0;
+    var dato1;
+    var dato2;
+    
+    // console.log(JSON.stringify(response.data));
+    while(contador<largo_lista){
+      dato1 = response.data[contador].fromPhone.toString();
+      console.log(dato1);
+      dato2 = response.data[contador].message.toString();
+      console.log(dato2);
+      variable = "<div>"+variable+"<p>"+dato1+":"+ dato2+"</p></div>";
+      contador = contador +1;
+    }
+    var chat = document.getElementById("chat2");
     chat.innerHTML = variable;
     console.log("%c" + variable, "color: blue;");
   })
