@@ -4,6 +4,8 @@ import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';  
 
+axios.defaults.withCredentials = true;
+
 function Contactos() {
     extraer_lista();
     return (

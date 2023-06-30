@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 function autenticar(){
   if( document.getElementById("contrasena").value !== "" && document.getElementById("usuario").value !== ""  ){
     axios.post('http://localhost:4000/api/auth/login', { username:  document.getElementById("usuario").value ,password:  document.getElementById("contrasena").value})

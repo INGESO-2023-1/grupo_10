@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 function registrar(){
   axios.post('http://localhost:4000/api/auth/register', { username:  document.getElementById("usuario").value ,phone:  document.getElementById("telefono").value, password:  document.getElementById("contrasena").value})
   .then(response => {
