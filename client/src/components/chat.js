@@ -159,11 +159,14 @@ function mensajeria(){
     var contador = 0;
     var dato1;
     var dato2;
-    console.log(dato1); 
+    
+    // console.log(JSON.stringify(response.data));
     while(contador<largo_lista){
       dato1 = response.data[contador].fromPhone.toString();
+      console.log(dato1);
       dato2 = response.data[contador].message.toString();
-      variable = <div>{variable}<p>{dato1}: {dato2}</p></div>;
+      console.log(dato2);
+      variable = "<div>"+variable+"<p>"+dato1+":"+ dato2+"</p></div>";
       contador = contador +1;
     }
     var chat = document.getElementById("chat1");
