@@ -22,6 +22,7 @@ module.exports.getActualUser = function (req, res) {
         });
       })
       .catch((err) => {
+        console.log("[controllers/user.getActualUser] Error al buscar usuario." + err);
         res.status(500).send("Error al buscar usuario.");
       });
   }
@@ -53,6 +54,7 @@ module.exports.getUser = function (req, res) {
       });
     })
     .catch((err) => {
+      console.log("[controllers/user.getUser] Error al buscar usuario." + err);
       res.status(500).send("Error al buscar usuario.");
     });
 };
@@ -82,6 +84,7 @@ module.exports.getUserByPhone = function (req, res) {
       });
     })
     .catch((err) => {
+      console.log("[controllers/user.getUserByPhone] Error al buscar usuario." + err);
       res.status(500).send("Error al buscar usuario.");
     });
 };

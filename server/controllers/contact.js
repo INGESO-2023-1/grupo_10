@@ -57,13 +57,13 @@ module.exports.addContact = function (req, res) {
               res.send("Contacto agregado.");
             })
             .catch((err) => {
-              console.log("[controllers/contact.addContact] Error al agregar contacto.");
+              console.log("[controllers/contact.addContact] Error al agregar contacto." + err);
               res.status(500).send("Error al agregar contacto.");
             });
         }
       })
       .catch((err) => {
-        console.log("[controllers/contact.addContact] Error al buscar contacto.");
+        console.log("[controllers/contact.addContact] Error al buscar contacto." + err);
         res.status(500).send("Error al buscar contacto.");
       });
   }
@@ -115,7 +115,7 @@ module.exports.removeContact = function (req, res) {
         }
       })
       .catch((err) => {
-        console.log("[controllers/contact.removeContact] Error al eliminar contacto.");
+        console.log("[controllers/contact.removeContact] Error al eliminar contacto." + err);
         res.status(500).send("Error al eliminar contacto.");
       });
   }
@@ -146,6 +146,7 @@ module.exports.getContacts = function (req, res) {
         res.json(contactsList);
       })
       .catch((err) => {
+        console.log("[controllers/contact.getContacts] Error al buscar contactos." + err);
         res.status(500).send("Error al buscar contactos.");
       }
     );

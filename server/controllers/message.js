@@ -52,7 +52,7 @@ module.exports.sendMessage = function (req, res) {
         res.send(newMessage);
       })
       .catch((err) => {
-        console.log("[controllers/message.sendMessage] Error al enviar mensaje.");
+        console.log("[controllers/message.sendMessage] Error al enviar mensaje." + err);
         res.status(500).send("Error al enviar mensaje.");
       });
   }
@@ -118,12 +118,12 @@ module.exports.getMessages = function (req, res) {
           res.send(allMessages);
         })
         .catch((err) => {
-          console.log("[controllers/message.getMessages] Error al obtener mensajes.");
+          console.log("[controllers/message.getMessages] Error al obtener mensajes." + err);
           res.status(500).send("Error al obtener mensajes.");
         });
     })
     .catch((err) => {
-      console.log("[controllers/message.getMessages] Error al obtener mensajes.");
+      console.log("[controllers/message.getMessages] Error al obtener mensajes." + err);
       res.status(500).send("Error al obtener mensajes.");
     });
 };
