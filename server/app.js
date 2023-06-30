@@ -11,9 +11,15 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
 const session = require("express-session");
+const mongoDBStore = require("connect-mongodb-session")(session);
 
 // Aplicacion
 const app = express();
+
+const store = new mongoDBStore({
+  uri: process.env.MONGO_URL || "mongodb://0.0.0.0:27017/wasap_db",
+  collection: "sessions",
+});
 
 // Variables de entorno (./.env) (usado con process.env)
 require("dotenv").config();
@@ -24,9 +30,10 @@ app.use(
     secret: process.env.SESSION_SECRET || "my_secret",
     resave: false,
     saveUninitialized: true,
+    store: store,
   })
 );
-app.use(cors());
+app.use(cors({credentials: true, origin: true}));
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
